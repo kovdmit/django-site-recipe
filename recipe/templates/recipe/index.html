@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'recipe/css/main.82cfd66e.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div><hr><h5>
+        {% for cat in categories %}
+            <a href="{{ cat.get_absolute_url }}">|  {{ cat.title }}  |</a>
+        {% endfor %}
+    </h5><hr></div>
+    <div class="hero-full-wrapper">
+        <div class="grid">
+            <div class="gutter-sizer"></div>
+            <div class="grid-sizer"></div>
+            {% for item in recipe %}
+                <div class="grid-item">
+                    {% if item.photo %}
+                        <img class="img-responsive" alt="" src="{{ item.photo.url }}">
+                    {% endif %}
+                    <a href="{{ item.get_absolute_url }}" class="project-description">
+                        <div class="project-text-holder">
+                            <div class="project-text-inner">
+                                <h3>{{ item.title }}</h3>
+                                {# <p>{{ item.short_desc }}</p> #}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

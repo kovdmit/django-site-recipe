@@ -1,0 +1,37 @@
+{% load static %}
+{% load recipe_tags %}
+<nav class="sidebar">
+    <div class="navbar-collapse" id="navbar-collapse">
+        <div class="site-header hidden-xs">
+            <a class="site-brand" href="{% url 'home' %}" title="">
+                <img class="img-responsive site-logo" alt="" src="{% static 'recipe/img/logo.png' %}" width="100"
+                     height="40">
+                Книга рецептов {% now "H:i:s" %}
+            </a>
+            <p>{% get_quote %}</p>
+        </div>
+        <ul class="nav">
+
+            <li><a href="../admin" title="">ADMIN</a></li>
+            <li><a href="{% url 'add_recipe' %}" title="">Добавить рецепт</a></li>
+            <li><a href="{% url 'about' %}" title="">О сайте</a></li>
+
+        </ul>
+
+        <nav class="nav-footer">
+            <p class="nav-footer-social-buttons">
+                <a class="fa-icon" href="https://www.instagram.com/kovdmit" title="">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                <a class="fa-icon" href="https://twitter.com/kovdmit" title="">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </p>
+
+{#            <p>© Untitled | Website created with#}
+{#                <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/#}
+{#                <a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a>#}
+{#            </p>#}
+        </nav>
+    </div>
+</nav>
