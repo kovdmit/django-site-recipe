@@ -37,14 +37,14 @@ def recipe_view(request, recipe_slug):
     return render(request, 'recipe/recipe.html', context=context)
 
 
-class Tag(ListView):
-    model = Recipe
-    template_name = 'recipe/tag.html'
-    context_object_name = 'recipe'
-
-    def get_queryset(self):
-        # tag = Tag.objects.get(slug=self.kwargs['tag_slug'])
-        return Recipe.objects.filter(published=True)
+# class Tag(ListView):
+#     model = Recipe
+#     template_name = 'recipe/tag.html'
+#     context_object_name = 'recipe'
+#
+#     def get_queryset(self):
+#         # tag = Tag.objects.get(slug=self.kwargs['tag_slug'])
+#         return Recipe.objects.filter(published=True)
 
 
 def tag_view(request, tag_slug):
@@ -56,13 +56,13 @@ def tag_view(request, tag_slug):
     return render(request, 'recipe/tag.html', context=context)
 
 
-class Cat(ListView):
-    model = Recipe
-    template_name = 'recipe/category.html'
-    context_object_name = 'recipe'
-
-    def get_queryset(self):
-        return Recipe.objects.filter(category=self.kwargs['category_slug'], published=True)
+# class Cat(ListView):
+#     model = Recipe
+#     template_name = 'recipe/category.html'
+#     context_object_name = 'recipe'
+#
+#     def get_queryset(self):
+#         return Recipe.objects.filter(category=self.kwargs['category_slug'], published=True)
 
 
 def category_view(request, category_slug):
