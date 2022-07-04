@@ -38,7 +38,7 @@ class Recipe(models.Model):
     short_desc = models.CharField(max_length=255, verbose_name='Примечание')
     proportions = models.TextField(verbose_name='Ингредиенты')
     content = models.TextField(verbose_name='Пошаговый рецепт')
-    photo = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True, verbose_name='Изображение')
+    photo = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True, verbose_name='Изображение (обложка)')
     create_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     author = models.CharField(max_length=50, verbose_name='Автор')
     views = models.PositiveIntegerField(default=0, verbose_name='Количество просмотров')

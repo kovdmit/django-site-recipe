@@ -1,8 +1,12 @@
 from django import forms
 from .models import Recipe
 
+from captcha.fields import CaptchaField
+
 
 class RecipeForm(forms.ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Recipe
         fields = ['title', 'slug', 'short_desc', 'proportions', 'content', 'author', 'photo', 'category', 'tags']
@@ -20,6 +24,7 @@ class RecipeForm(forms.ModelForm):
             'author': forms.TextInput(attrs={"class": "form-control", "placeholder": "Автор"}),
 
             'category': forms.Select(attrs={"class": "form-control", "placeholder": "Категория"}),
+
         }
 
 

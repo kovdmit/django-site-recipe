@@ -78,13 +78,22 @@
                                 </div>
                             </div>
 
-{#                            <div class="form-group">#}
-{#                                <label for="{{ form.tags.id_for_label }}">Ключевые слова</label>#}
-{#                                {{ form.tags }}#}
-{#                                <div class="invalid-feedback">#}
-{#                                    {{ form.tags.errors }}#}
-{#                                </div>#}
-{#                            </div>#}
+                            <div class="form-group">
+                                <label for="{{ form.captcha.id_for_label }}">Введите символы</label>
+                                {{ form.captcha }}
+                                <div class="invalid-feedback">
+                                    {{ form.captcha.errors }}
+                                </div>
+                            </div>
+
+
+                            {#                            <div class="form-group">#}
+                            {#                                <label for="{{ form.tags.id_for_label }}">Ключевые слова</label>#}
+                            {#                                {{ form.tags }}#}
+                            {#                                <div class="invalid-feedback">#}
+                            {#                                    {{ form.tags.errors }}#}
+                            {#                                </div>#}
+                            {#                            </div>#}
 
 
                             {# {{ form.as_p }} #}
