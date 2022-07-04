@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'recipe/css/main.82cfd66e.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Авторизация{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <form method="post">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-lg">Авторизация</button>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

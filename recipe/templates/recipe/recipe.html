@@ -14,27 +14,19 @@
 
             <div class="section-container-spacer">
                 <h1>{{ recipe_full.title }}</h1>
-                <p>{{ recipe_full.short_desc }}</p>
+                <p>{{ recipe_full.short_desc|safe }}</p>
             </div>
 
             {% if recipe_full.photo %}
                 <div class="section-container-spacer">
                     <p><img class="img-responsive" alt="" src="{{ recipe_full.photo.url }}"></p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p><img class="img-responsive" alt="" src="https://picsum.photos/400/500"></p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <p><img class="img-responsive" alt="" src="https://picsum.photos/401/500"></p>
-                        </div>
-                    </div>
                 </div>
             {% endif %}
 
             <h3>Ингредиенты: </h3>
-            <p>{{ recipe_full.proportions }}</p>
+            <p>{{ recipe_full.proportions|safe }}</p>
             <h3>Пошаговый рецепт: </h3>
-            <p>{{ recipe_full.content }}</p>
+            <p>{{ recipe_full.content|safe }}</p>
             <p><i>Дата написания: {{ recipe_full.create_at }}</i></p>
             <p><b>Автор: {{ recipe_full.author }}</b></p>
             <p>Ключевые слова: {% for tag in tags %} <a href="{% url 'tag_view' tag.slug %}">#{{ tag }} </a>{% endfor %}</p>

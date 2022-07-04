@@ -35,7 +35,7 @@ class Category(models.Model):
 class Recipe(models.Model):
     slug = models.SlugField(max_length=255, unique=True, verbose_name='Уникальное имя')
     title = models.CharField(max_length=255, verbose_name='Наименование')
-    short_desc = models.CharField(max_length=255, verbose_name='Примечание')
+    short_desc = models.TextField(verbose_name='Примечание')
     proportions = models.TextField(verbose_name='Ингредиенты')
     content = models.TextField(verbose_name='Пошаговый рецепт')
     photo = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True, verbose_name='Изображение (обложка)')

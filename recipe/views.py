@@ -1,7 +1,10 @@
+from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import RecipeForm
+from .forms import RecipeForm, UserLoginForm
 from django.views.generic import ListView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 
 class Index(ListView):
@@ -88,3 +91,34 @@ def add_recipe(request):
 
 def about(request):
     return render(request, 'recipe/about.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Успех!')
+            return redirect('login')
+        else:
+            messages.error(request, 'Неудача!')
+    else:
+        form = UserCreationForm()
+    return render(request, 'recipe/register.html', {'form': form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserLoginForm()
+    return render(request, 'recipe/login.html')
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')

@@ -28,6 +28,19 @@
 
 <main class="" id="main-collapse">
     {% block content %}
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="alert-danger" role="alert">
+                    {{ message }}
+                </div>
+                {% else %}
+                <div class="alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     {% endblock %}
 </main>
 

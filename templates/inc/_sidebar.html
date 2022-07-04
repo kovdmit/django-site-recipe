@@ -11,8 +11,9 @@
             <p>{% get_quote %}</p>
         </div>
         <ul class="nav">
-
             <li><a href="../admin" title="">ADMIN</a></li>
+            <li><a href="{% url 'register' %}" title="">Регистрация</a></li>
+            <li><a href="{% url 'login' %}" title="">Авторизация</a></li>
             <li><a href="{% url 'add_recipe' %}" title="">Добавить рецепт</a></li>
             <li><a href="{% url 'about' %}" title="">О сайте</a></li>
 
@@ -28,10 +29,10 @@
                 </a>
             </p>
 
-{#            <p>© Untitled | Website created with#}
-{#                <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/#}
-{#                <a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a>#}
-{#            </p>#}
+            {#            <p>© Untitled | Website created with#}
+            {#                <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/#}
+            {#                <a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a>#}
+            {#            </p>#}
         </nav>
     </div>
 </nav>
